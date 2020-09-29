@@ -1,41 +1,19 @@
 <header>
-  <div class="container">
-    <div>
-      <a routerLink="/" class="brand-logo right">SIFS OPS Center</a>
-      <nav>
-        <ul>
-          <li><a href="#" routerLink="/">Home</a></li>
-          <li><a href="#" routerLink="/api-playground">SIFS API Playground</a></li>
-          <li><a href="#" routerLink="/">SIFS Tracing Inspector</a></li>
-          <li><a href="#" routerLink="/">SIFS Transaction Seeker</a></li>
-          <li><a href="#" routerLink="/">SIFS Merchant Data Viewer</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button>
-    </button>
-    <h1>SimpleCRM</h1>
-    <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
-      <a mat-button [routerLink]="'/create-account'"> Create Account </a>
-      <a mat-button [routerLink]="'/contacts'"> Contacts </a>
-      <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
-      <a mat-button [routerLink]="'/activities'"> Activities </a>
-      <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
-
-    </div>
-  </mat-toolbar-row>
-
-  <mat-toolbar-row>
-      <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <h1>SIFS OPS Center</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button href="#" routerLink="/">Home</a>
+        <a mat-button href="#" routerLink="/api-playground">SIFS API Playground</a>
+        <a mat-button href="#" routerLink="/">SIFS Tracing Inspector</a>
+        <a mat-button href="#" routerLink="/">SIFS Transaction Seeker</a>
+        <a mat-button href="#" routerLink="/">SIFS Merchant Data Viewer</a>
+      </div>
     </mat-toolbar-row>
-</mat-toolbar>
-<button mat-button>w</button>
+  </mat-toolbar>
+</header>
+
 <div class="container">
   <router-outlet></router-outlet>
 </div>
