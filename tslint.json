@@ -64,6 +64,7 @@
       true,
       "as-needed"
     ],
+    "prefer-const": true,
     "quotemark": [
       true,
       "single"

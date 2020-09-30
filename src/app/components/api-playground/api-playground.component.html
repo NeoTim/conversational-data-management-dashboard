@@ -1,1 +1,14 @@
-<p>api-playground works!</p>
+<h1>Example</h1>
+
+
+<hr>
+<h2>Editor 1 </h2>
+<app-show [data]="showData"></app-show>
+
+
+<h2>Mult Editor</h2>
+
+<hr>
+<json-editor #editorMult [options]="options" [data]="data" (change)="changeLog($event)"></json-editor>
+
+<hr>
