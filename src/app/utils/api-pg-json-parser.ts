@@ -1,6 +1,7 @@
 const unpackRequest = (request, schemas) => {
   const res: object = {};
   if (request.$ref === undefined) {
+    // TODO
     return res;
   }
 
