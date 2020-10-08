@@ -1,0 +1,6 @@
+<div [formGroup]="form">
+  <mat-form-field required appearance="fill">
+    <mat-label><label [attr.for]="field.key">{{field.label}}</label></mat-label>
+    <input matInput [formControlName]="field.key" [id]="field.key" [type]="field.type">
+  </mat-form-field>
+</div>

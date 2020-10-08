@@ -4,13 +4,11 @@
 /dist
 /tmp
 /out-tsc
-/build
 # Only exists if Bazel was run
 /bazel-out
 
 # dependencies
-client/node_modules/
-node_modules/
+/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -46,6 +44,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# api keys
-.env
