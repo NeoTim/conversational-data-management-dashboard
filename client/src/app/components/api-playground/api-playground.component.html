@@ -1,0 +1,52 @@
+<section class="mat-typography">
+  <h2 class="mat-h2">SIFS API Playground</h2>
+  <mat-card class='pg-card'>
+    <mat-card-content>
+      <ng-container *ngIf="apis">
+        <button mat-button [matMenuTriggerFor]="resources">Select A Method</button>
+        <mat-menu #resources="matMenu">
+          <ng-container *ngFor="let resource of apis.resources | keyvalue">
+            <button mat-menu-item [matMenuTriggerFor]="sub_menu">{{ resource.key }}</button>
+            <mat-menu #sub_menu="matMenu">
+              <ng-container *ngFor="let method of apis.resources[resource.key] | keyvalue">
+                <button mat-menu-item (click)="handleMethod($event, resource.key, method.key)">{{ method.key }}</button>
+              </ng-container>
+            </mat-menu>
+          </ng-container>
+        </mat-menu>
+      </ng-container>
+
+      <span *ngIf="state.methodName" class="selected-method">
+        <span>Selected Method:</span> {{state.methodName}}
+      </span>
+    </mat-card-content>
+    <mat-card-content>
+
+      <button mat-button [matMenuTriggerFor]="environments" class="capitalize">{{environment}}</button>
+      <mat-menu #environments="matMenu">
+        <button mat-menu-item id='production' (click)="onSelectEnvironment($event)">Production</button>
+        <button mat-menu-item id='staging' (click)="onSelectEnvironment($event)">Staging</button>
+      </mat-menu>
+    </mat-card-content>
+
+  </mat-card>
+  <hr>
+
+
+  <div *ngIf='state.methodName && response === undefined'>
+    <app-dynamic-form *ngIf="state.parameters" [fields]="state.parameters" (getPayload)="getParameterPayload($event)">
+    </app-dynamic-form>
+
+
+    <app-json-form *ngIf="state.request" [request]='state.request' [schemas]='apis.schemas'
+      (getJSON)="getRequestPayload($event)">
+    </app-json-form>
+
+    <button mat-raised-button color='primary' [disabled]='!isSubmittable' (click)='onMakeRequest()'>Submit</button>
+  </div>
+
+  <div *ngIf="response">
+    <ace-editor mode="json" [text]="response" [theme]="'github'" style="height:400px;"
+      [options]="{maxLines: 'Infinity', showPrintMargin: false}" [readOnly]="true"></ace-editor>
+  </div>
+</section>

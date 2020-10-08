@@ -1,0 +1,22 @@
+<header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <h1>SIFS OPS Center</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button href="#" routerLink="/">Home</a>
+        <a mat-button href="#" routerLink="/api-playground">SIFS API Playground</a>
+        <a mat-button href="#" routerLink="/">SIFS Tracing Inspector</a>
+        <a mat-button href="#" routerLink="/">SIFS Transaction Seeker</a>
+        <a mat-button href="#" routerLink="/">SIFS Merchant Data Viewer</a>
+      </div>
+      <span class="filler"></span>
+      <div *ngIf='pingState' class="ping">Connection to SIFS is <span *ngIf='pingState.isSuccessful; else unhealthy' class="healthy">healthy ({{pingState.pingStr}})</span></div>
+      <ng-template #unhealthy><span class="unhealthy">erroneuous</span></ng-template>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

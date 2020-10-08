@@ -1,0 +1,12 @@
+<section class="mat-typography">
+<h3>Body Parameters</h3>
+
+<json-editor #editorMult [options]="options" [data]="data" (change)="changeLog($event)"></json-editor>
+
+<div *ngIf='!validatorState.canSave' class="alert-danger">{{validatorState.errorMessage}}</div>
+<div class="form-row">
+  <button mat-raised-button (click)='onSubmit($event)' [disabled]='!validatorState.canSave'>Save</button>
+</div>
+
+<hr>
+</section>
