@@ -11,8 +11,8 @@ export interface APIRequest {
 
 @Injectable({ providedIn: 'root' })
 export class ParameterCheckAPIService {
-  getURL = 'http://localhost:3000/api/sifs-api-pg/param-check';
-  submitURL = 'http://localhost:3000/api/test';
+  getURL = '/api/sifs-api-pg/param-check';
+  submitURL = '/api/test';
   constructor(private http: HttpClient) {}
 
   httpOptions = {
@@ -29,6 +29,6 @@ export class ParameterCheckAPIService {
   }
 
   getPing(): Observable<any> {
-    return this.http.get('http://localhost:3000/api/ping');
+    return this.http.get('/api/ping');
   }
 }
