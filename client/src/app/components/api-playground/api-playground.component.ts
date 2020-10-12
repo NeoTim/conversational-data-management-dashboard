@@ -1,10 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { FieldBase } from './../shared/dynamic-form/field-base';
 import { Component, OnInit } from '@angular/core';
-import {
-  ParameterCheckAPIService,
-  APIRequest,
-} from '@app/services/parameter-check.service';
+import { ParameterCheckAPIService, APIRequest } from '@app/services/parameter-check.service';
 import { json } from 'body-parser';
 
 interface ApiPlaygroundState {
@@ -59,9 +56,7 @@ export class ApiPlaygroundComponent implements OnInit {
     this.state.methodName = method;
     this.state.resourceName = resource;
     const parameters: FieldBase<string>[] = [];
-    for (const [key, value] of Object.entries(
-      this.apis.resources[resource][method].parameters
-    )) {
+    for (const [key, value] of Object.entries(this.apis.resources[resource][method].parameters)) {
       parameters.push(
         new FieldBase({
           key,
@@ -85,17 +80,9 @@ export class ApiPlaygroundComponent implements OnInit {
   }
 
   onMakeRequest(): void {
-    const method = this.apis.resources[this.state.resourceName][
-      this.state.methodName
-    ];
-    const parameters =
-      this.state.parameterPayload !== undefined
-        ? JSON.parse(this.state.parameterPayload)
-        : undefined;
-    const reqBody =
-      this.state.requestPayloadStr !== undefined
-        ? JSON.parse(this.state.requestPayloadStr)
-        : undefined;
+    const method = this.apis.resources[this.state.resourceName][this.state.methodName];
+    const parameters = this.state.parameterPayload !== undefined ? JSON.parse(this.state.parameterPayload) : undefined;
+    const reqBody = this.state.requestPayloadStr !== undefined ? JSON.parse(this.state.requestPayloadStr) : undefined;
 
     const body: APIRequest = {
       method,

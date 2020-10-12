@@ -1,4 +1,3 @@
-// import { HomeComponent } from './components/home/home.component';
 import { HomeComponent } from '@components/home/home.component';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,12 +17,7 @@ import { CommonModule } from '@angular/common';
 import { AceEditorModule } from 'ng2-ace-editor';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ApiPlaygroundComponent,
-    HomeComponent,
-    ShowComponent,
-  ],
+  declarations: [AppComponent, ApiPlaygroundComponent, HomeComponent, ShowComponent],
   imports: [
     AceEditorModule,
     CommonModule,

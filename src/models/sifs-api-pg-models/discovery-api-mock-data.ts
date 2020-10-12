@@ -51,7 +51,7 @@ const data = {
                         'The content client sent for triggering ping service.',
                       type: 'string',
                       location: 'query',
-                    }
+                    },
                   },
                   httpMethod: 'POST',
                   id:

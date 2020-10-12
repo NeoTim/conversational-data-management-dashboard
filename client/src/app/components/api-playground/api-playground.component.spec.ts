@@ -8,9 +8,8 @@ describe('ApiPlaygroundComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ApiPlaygroundComponent ]
-    })
-    .compileComponents();
+      declarations: [ApiPlaygroundComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

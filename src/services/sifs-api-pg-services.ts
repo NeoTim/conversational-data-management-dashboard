@@ -5,7 +5,7 @@ import { exec } from 'child_process';
 
 const execute = util.promisify(exec);
 
-const processParameterCheckAPI =  async (): Promise<any | null> => {
+const processParameterCheckAPI = async (): Promise<any | null> => {
   try {
     const SIFS_API_KEY = process.env.SIFS_API_KEY;
 
@@ -15,7 +15,7 @@ const processParameterCheckAPI =  async (): Promise<any | null> => {
 
     const availableResource: Map<string, any> = new Map();
 
-    JSON.parse(availableAPIs.stdout).availableBridgeApis.forEach(element => {
+    JSON.parse(availableAPIs.stdout).availableBridgeApis.forEach((element) => {
       availableResource.set(element.resource, element.availableMethods);
     });
 
@@ -31,7 +31,7 @@ const processParameterCheckAPI =  async (): Promise<any | null> => {
     res['resources'] = {};
 
     for (const [key, value] of Object.entries(discoveryMockData.resources)) {
-      if (!availableResource.has(key)){
+      if (!availableResource.has(key)) {
         continue;
       }
       const methods = _findMethodsOfResource(value, availableResource.get(key));
@@ -47,7 +47,10 @@ const processParameterCheckAPI =  async (): Promise<any | null> => {
   }
 };
 
-const _findMethodsOfResource = (resource, availableApis: Array<any>): any | null => {
+const _findMethodsOfResource = (
+  resource,
+  availableApis: Array<any>
+): any | null => {
   const stack: Array<any> = [];
   stack.push(resource);
   while (stack.length > 0) {
@@ -58,7 +61,7 @@ const _findMethodsOfResource = (resource, availableApis: Array<any>): any | null
         return availableApis.includes(key);
       });
 
-      if(_.isEmpty(methods)){
+      if (_.isEmpty(methods)) {
         continue;
       }
       return methods;

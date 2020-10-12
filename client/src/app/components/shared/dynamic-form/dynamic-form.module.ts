@@ -5,8 +5,6 @@ import { DynamicFormFieldComponent } from '@app/components/shared/dynamic-form/d
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@app/material.module';
 
-
-
 @NgModule({
   declarations: [DynamicFormComponent, DynamicFormFieldComponent],
   imports: [CommonModule, ReactiveFormsModule, MaterialModule],

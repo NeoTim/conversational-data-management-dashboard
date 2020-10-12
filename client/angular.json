@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "conversational-data-management-dashboard"
+  "defaultProject": "conversational-data-management-dashboard",
+  "cli": {
+    "analytics": "209830f5-7056-4c98-a1ff-8e45dc439b52"
+  }
 }

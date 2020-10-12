@@ -11,7 +11,7 @@ interface PingState {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'conversational-data-management-dashboard';
+  title = 'sifs-ops-center';
   pingState: PingState;
 
   constructor(private parameterCheckAPIService: ParameterCheckAPIService) {}

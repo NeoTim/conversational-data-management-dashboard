@@ -32,6 +32,7 @@ speed-measure-plugin*.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+client/.vscode
 
 # misc
 /.sass-cache
@@ -49,3 +50,7 @@ Thumbs.db
 
 # api keys
 .env
+
+# .angulardoc.json
+.angulardoc.json
+client/.angulardoc.json

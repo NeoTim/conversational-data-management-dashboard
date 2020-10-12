@@ -1,12 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  Input,
-  OnChanges,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import * as Ajv from 'ajv';
 import { IError, JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
 import jsonUtils from '@utils/api-pg-json-parser';
@@ -42,8 +34,7 @@ export class JsonFormComponent implements OnInit, OnChanges {
   }
 
   changeLog(event = null): void {
-    this.validatorState.canSave =
-      this.schemaValidator.validate('mySchema', this.editorMult.get()) === true;
+    this.validatorState.canSave = this.schemaValidator.validate('mySchema', this.editorMult.get()) === true;
 
     if (!this.validatorState.canSave) {
       const err = this.schemaValidator.errors[0];
@@ -73,18 +64,13 @@ export class JsonFormComponent implements OnInit, OnChanges {
     this.options.modes = this.options.modes = ['code', 'form', 'tree', 'view'];
     this.options.statusBar = this.options.statusBar = false;
 
-    const filteredSchemas = Object.values(this.schemas).filter(
-      (schema: any) => {
-        return schema.id !== this.request.$ref;
-      }
-    );
+    const filteredSchemas = Object.values(this.schemas).filter((schema: any) => {
+      return schema.id !== this.request.$ref;
+    });
     const ajv = new Ajv({ format: false, allErrors: true, schemaId: 'id' });
-    this.schemaValidator = ajv
-      .addSchema(this.schemas[this.request.$ref], 'mySchema')
-      .addSchema(filteredSchemas);
+    this.schemaValidator = ajv.addSchema(this.schemas[this.request.$ref], 'mySchema').addSchema(filteredSchemas);
 
-    this.validatorState.canSave =
-      this.schemaValidator.validate('mySchema', this.data) === true;
+    this.validatorState.canSave = this.schemaValidator.validate('mySchema', this.data) === true;
 
     if (!this.validatorState.canSave) {
       const err = this.schemaValidator.errors[0];

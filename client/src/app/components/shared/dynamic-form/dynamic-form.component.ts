@@ -19,7 +19,7 @@ export class DynamicFormComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.form = this.toFormGroup(this.fields);
   }
-  ngOnChanges(): void{
+  ngOnChanges(): void {
     this.form = this.toFormGroup(this.fields);
   }
 

@@ -11,7 +11,7 @@
         <a mat-button href="#" routerLink="/">SIFS Merchant Data Viewer</a>
       </div>
       <span class="filler"></span>
-      <div *ngIf='pingState' class="ping">Connection to SIFS is <span *ngIf='pingState.isSuccessful; else unhealthy' class="healthy">healthy ({{pingState.pingStr}})</span></div>
+      <div *ngIf='pingState' class="ping">Connection to SIFS Bridge Server is <span *ngIf='pingState.isSuccessful; else unhealthy' class="healthy">healthy ({{pingState.pingStr}})</span></div>
       <ng-template #unhealthy><span class="unhealthy">erroneuous</span></ng-template>
     </mat-toolbar-row>
   </mat-toolbar>

@@ -1,9 +1,11 @@
+/* This is a helper method that helps expand the refernces in the request with a given schema */
 const unpackRequest = (request, schemas) => {
   const res: object = {};
   if (request.$ref === undefined) {
     return res;
   }
 
+  // Using DFS to find all the references to the corresponding request
   const stack = [[res, schemas[request.$ref]]];
   while (stack.length > 0) {
     let curr;
@@ -13,16 +15,16 @@ const unpackRequest = (request, schemas) => {
     const properties: object = schema.properties;
     for (const [key, value] of Object.entries(properties)) {
       if (value.$ref === undefined) {
-        if (value.type === 'array'){
+        if (value.type === 'array') {
           curr[key] = [];
-          if (value.items.$ref === undefined){
+          if (value.items.$ref === undefined) {
             curr[key].push('');
           } else {
             const obj = {};
             curr[key].push(obj);
             stack.push([obj, schemas[value.items.$ref]]);
           }
-        }else{
+        } else {
           curr[key] = '';
         }
         continue;
@@ -34,6 +36,6 @@ const unpackRequest = (request, schemas) => {
   return res;
 };
 
-const utils = {unpackRequest};
+const utils = { unpackRequest };
 
 export default utils;
