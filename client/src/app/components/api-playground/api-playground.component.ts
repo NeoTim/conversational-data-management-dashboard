@@ -52,7 +52,7 @@ export class ApiPlaygroundComponent implements OnInit {
   }
 
   handleMethod(event, resource, method): void {
-    this.resetParametersAndRequest();
+    this.resetParametersAndRequest_();
     this.state.methodName = method;
     this.state.resourceName = resource;
     const parameters: FieldBase<string>[] = [];
@@ -111,7 +111,7 @@ export class ApiPlaygroundComponent implements OnInit {
     this.environment = event.target.id;
   }
 
-  private resetParametersAndRequest(): void {
+  private resetParametersAndRequest_(): void {
     this.state = {
       resourceName: undefined,
       requestPayloadStr: undefined,

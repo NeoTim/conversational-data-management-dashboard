@@ -1,3 +1,4 @@
+import  curlCommands  from '@utils/curl-commands-utils';
 import discoveryMockData from '@models/sifs-api-pg-models/discovery-api-mock-data';
 import * as _ from 'lodash';
 import util from 'util';
@@ -7,11 +8,7 @@ const execute = util.promisify(exec);
 
 const processParameterCheckAPI = async (): Promise<any | null> => {
   try {
-    const SIFS_API_KEY = process.env.SIFS_API_KEY;
-
-    const availableAPIs = await execute(
-      `curl --connect-to "::gfe-wk.l.google.com" --header "Sec-Google-GFE-Restrict-Backends: shared-layer2-gfe=wk" "https://geoservicesinteractions-pa.googleapis.com/v1/availability:getAvailablePlaygroundApis?key=${SIFS_API_KEY}"`
-    );
+    const availableAPIs = await execute(curlCommands.AVAILABILITY_API_COMMAND);
 
     const availableResource: Map<string, any> = new Map();
 
@@ -34,7 +31,7 @@ const processParameterCheckAPI = async (): Promise<any | null> => {
       if (!availableResource.has(key)) {
         continue;
       }
-      const methods = _findMethodsOfResource(value, availableResource.get(key));
+      const methods = findMethodsOfResource_(value, availableResource.get(key));
       if (methods == null) {
         continue;
       }
@@ -47,7 +44,7 @@ const processParameterCheckAPI = async (): Promise<any | null> => {
   }
 };
 
-const _findMethodsOfResource = (
+const findMethodsOfResource_ = (
   resource,
   availableApis: Array<any>
 ): any | null => {

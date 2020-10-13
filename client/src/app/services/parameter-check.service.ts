@@ -11,7 +11,7 @@ export interface APIRequest {
 @Injectable({ providedIn: 'root' })
 export class ParameterCheckAPIService {
   getURL = '/api/sifs-api-pg/param-check';
-  submitURL = '/api/test';
+  submitURL = '/api/sifs-api-pg/make-request';
   constructor(private http: HttpClient) {}
 
   httpOptions = {

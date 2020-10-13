@@ -42,6 +42,7 @@
   "_moduleAliases": {
     "@services": "./build/services",
     "@routes": "./build/routes",
-    "@models": "./build/models"
+    "@models": "./build/models",
+    "@utils": "./build/utils"
   }
 }

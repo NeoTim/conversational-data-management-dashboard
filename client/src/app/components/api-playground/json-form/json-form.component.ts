@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import * as Ajv from 'ajv';
 import { IError, JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
-import jsonUtils from '@utils/api-pg-json-parser';
+import jsonUtils from '@utils/api-playground-json-parser';
 
 interface ValidatorState {
   canSave?: boolean;
